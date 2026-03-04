@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Doramas {
+public class Dorama {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -142,7 +142,7 @@ public class Doramas {
 		this.elenco = elenco;
 	}
 
-	public Doramas(Long id, String titulo, String tituloOriginal, String sinopse, String resenha, Integer anoLancamento,
+	public Dorama(Long id, String titulo, String tituloOriginal, String sinopse, String resenha, Integer anoLancamento,
 			Integer totalEpisodios, Integer duracaoMediaMinutos, String ondeAssistir, Integer nota, String capaUrl,
 			List<Categorias> categorias, List<DoramaAtor> elenco) {
 		super();

@@ -16,11 +16,11 @@ public class DoramaAtor {
 
     @ManyToOne
     @JoinColumn(name = "dorama_id")
-    private Doramas dorama;
+    private Dorama dorama;
 
     @ManyToOne
     @JoinColumn(name = "ator_id")
-    private Atores ator;
+    private Ator ator;
 
     private String nomePersonagem;
     
@@ -34,19 +34,19 @@ public class DoramaAtor {
 		this.id = id;
 	}
 
-	public Doramas getDorama() {
+	public Dorama getDorama() {
 		return dorama;
 	}
 
-	public void setDorama(Doramas dorama) {
+	public void setDorama(Dorama dorama) {
 		this.dorama = dorama;
 	}
 
-	public Atores getAtor() {
+	public Ator getAtor() {
 		return ator;
 	}
 
-	public void setAtor(Atores ator) {
+	public void setAtor(Ator ator) {
 		this.ator = ator;
 	}
 
@@ -60,7 +60,7 @@ public class DoramaAtor {
 
 
 
-	public DoramaAtor(Long id, Doramas dorama, Atores ator, String nomePersonagem) {
+	public DoramaAtor(Long id, Dorama dorama, Ator ator, String nomePersonagem) {
 		super();
 		this.id = id;
 		this.dorama = dorama;

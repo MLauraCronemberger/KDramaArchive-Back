@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Atores {
+public class Ator {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,7 +72,7 @@ public class Atores {
 		this.doramas = doramas;
 	}
 
-	public Atores(Long id, String nome, LocalDate dataNascimento, String bio, String fotoUrl,
+	public Ator(Long id, String nome, LocalDate dataNascimento, String bio, String fotoUrl,
 			List<DoramaAtor> doramas) {
 		super();
 		this.id = id;
