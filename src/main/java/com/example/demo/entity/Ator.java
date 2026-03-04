@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.example.demo.entity.dto.AtorDTO.AtorCreateDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -71,6 +73,8 @@ public class Ator {
 	public void setDoramas(List<DoramaAtor> doramas) {
 		this.doramas = doramas;
 	}
+	
+	public Ator() {}
 
 	public Ator(Long id, String nome, LocalDate dataNascimento, String bio, String fotoUrl,
 			List<DoramaAtor> doramas) {
@@ -81,6 +85,13 @@ public class Ator {
 		this.bio = bio;
 		this.fotoUrl = fotoUrl;
 		this.doramas = doramas;
+	}
+	
+	public Ator(AtorCreateDTO dto) {
+	    this.nome = dto.nome();
+	    this.dataNascimento = dto.dataNascimento();
+	    this.bio = dto.bio();
+	    this.fotoUrl = dto.fotoUrl();
 	}
     
     
