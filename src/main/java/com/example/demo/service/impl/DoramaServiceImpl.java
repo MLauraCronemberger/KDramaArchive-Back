@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Dorama;
-import com.example.demo.entity.dto.DoramaDTO.DoramaAtorCreateDTO;
 import com.example.demo.entity.dto.DoramaDTO.DoramaCreateDTO;
 import com.example.demo.entity.dto.DoramaDTO.DoramaResponseDTO;
-import com.example.demo.enums.Categorias;
 import com.example.demo.repository.DoramaRepository;
+import com.example.demo.service.DoramaAtorService;
 import com.example.demo.service.DoramaService;
 
 @Service
@@ -18,6 +17,9 @@ public class DoramaServiceImpl implements DoramaService {
 	
 	@Autowired
 	private DoramaRepository doramaRepository;
+	
+	@Autowired
+	private DoramaAtorService atorService;
 	
 	@Override
 	public DoramaResponseDTO createDorama(DoramaCreateDTO novoDorama) {
@@ -36,6 +38,8 @@ public class DoramaServiceImpl implements DoramaService {
 		dorama.setCategorias(novoDorama.categorias());
 		
 		doramaRepository.save(dorama);
+		
+		atorService.bindAtorDorama(dorama, novoDorama.atores());
 		
 		return DoramaResponseDTO.fromEntity(dorama);
 	}

@@ -57,6 +57,8 @@ public class DoramaAtor {
 	public void setNomePersonagem(String nomePersonagem) {
 		this.nomePersonagem = nomePersonagem;
 	}
+	
+	public DoramaAtor() {}
 
 
 
