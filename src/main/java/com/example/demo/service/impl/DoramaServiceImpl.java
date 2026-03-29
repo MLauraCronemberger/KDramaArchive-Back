@@ -19,7 +19,7 @@ public class DoramaServiceImpl implements DoramaService {
 	private DoramaRepository doramaRepository;
 	
 	@Autowired
-	private DoramaAtorService atorService;
+	private DoramaAtorService doramaAtorService;
 	
 	@Override
 	public DoramaResponseDTO createDorama(DoramaCreateDTO novoDorama) {
@@ -39,7 +39,8 @@ public class DoramaServiceImpl implements DoramaService {
 		
 		doramaRepository.save(dorama);
 		
-		atorService.bindAtorDorama(dorama, novoDorama.atores());
+		System.out.println(novoDorama.atores());
+		doramaAtorService.bindAtorDorama(dorama, novoDorama.atores());
 		
 		return DoramaResponseDTO.fromEntity(dorama);
 	}

@@ -25,24 +25,24 @@ public class DoramaAtorServiceImpl implements DoramaAtorService {
 	
 	@Override
 	public List<DoramaAtor> bindAtorDorama(Dorama dorama, List<DoramaAtorCreateDTO> doramaAtor) {
+
 	    List<DoramaAtor> lista = new ArrayList<>();
 
-	    for (DoramaAtorCreateDTO dto : doramaAtor) {
+	    if (doramaAtor == null || doramaAtor.isEmpty()) {
+	        return lista;
+	    }
 
+	    for (DoramaAtorCreateDTO dto : doramaAtor) {
 	        DoramaAtor novoBindAtorDorama = new DoramaAtor();
 
-	        // exemplo de preenchimento (ajusta conforme teus campos)
 	        novoBindAtorDorama.setDorama(dorama);
 	        novoBindAtorDorama.setAtor(atorRepository.findById(dto.idAtor()).get());
-	        
 	        novoBindAtorDorama.setNomePersonagem(dto.nomePersonagem());
-	        
-	        repository.save(novoBindAtorDorama);
 
+	        repository.save(novoBindAtorDorama);
 	        lista.add(novoBindAtorDorama);
 	    }
-	    
+
 	    return lista;
-		
 	}
 }
