@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import java.util.List;
 
+import com.example.demo.entity.dto.DoramaDTO.DoramaCreateDTO;
 import com.example.demo.enums.Categorias;
 
 import jakarta.persistence.ElementCollection;
@@ -141,6 +142,8 @@ public class Dorama {
 	public void setElenco(List<DoramaAtor> elenco) {
 		this.elenco = elenco;
 	}
+	
+	public Dorama() {}
 
 	public Dorama(Long id, String titulo, String tituloOriginal, String sinopse, String resenha, Integer anoLancamento,
 			Integer totalEpisodios, Integer duracaoMediaMinutos, String ondeAssistir, Integer nota, String capaUrl,
@@ -160,7 +163,5 @@ public class Dorama {
 		this.categorias = categorias;
 		this.elenco = elenco;
 	}
-    
-    
-
+	
 }
